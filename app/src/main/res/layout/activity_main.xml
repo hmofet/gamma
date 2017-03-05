@@ -1,0 +1,143 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Spinner
+	    android:id="@+id/muses_spinner"
+	    android:layout_width="match_parent"
+	    android:layout_height="60dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal" >
+        <Button
+            android:id="@+id/refresh"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:text="@string/refresh" />
+	    <Button
+	        android:id="@+id/connect"
+	        android:layout_width="100dp"
+	        android:layout_height="40dp"
+	        android:text="@string/connect" />
+	    <Button
+	        android:id="@+id/disconnect"
+	        android:layout_width="120dp"
+	        android:layout_height="40dp"
+	        android:text="@string/disconnect" />
+		</LinearLayout>
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="45dp"
+		android:orientation="horizontal" >
+		<Button
+		android:id="@+id/pause"
+		android:layout_width="220dp"
+		android:layout_height="40dp"
+		android:text="@string/pause" />
+	</LinearLayout>
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="45dp"
+		android:orientation="horizontal" >
+	<TextView
+   		android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:layout_weight="1"
+    	android:textSize="16sp"
+    	android:text="@string/status" />
+  	<TextView
+    	android:id="@+id/con_status"
+   		android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:layout_weight="1"
+    	android:textSize="16sp"
+    	android:text="@string/undefined" />
+     </LinearLayout>
+     <LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="45dp"
+			android:orientation="horizontal" >
+ 	    </LinearLayout>
+
+	<ScrollView android:id="@+id/ScrlView" android:layout_width="fill_parent" android:layout_height="fill_parent" >
+		<LinearLayout android:id="@+id/layoutForScroll" android:orientation="vertical"
+			android:layout_width="fill_parent" android:layout_height="wrap_content">
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:textSize="16sp"
+				android:text="Enter score in each box after each question. 1 Point for each correct answer: "/>
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:textSize="16sp"
+				android:text="What is the year?  Season?  Date?  Day of the week?  Month?"/>
+			<EditText
+				android:id="@+id/ans1"
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent">
+			</EditText>
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:textSize="16sp"
+				android:text="Where are we now: State?  County?  Town/city?  Hospital?  Floor?" />
+			<EditText
+				android:id="@+id/ans2"
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent">
+			</EditText>
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:textSize="16sp"
+				android:text="The examiner names three unrelated objects clearly and slowly, then asks the patient to name all three of them.
+				The patient’s response is used for scoring. The examiner repeats them until patient learns all of them, if possible. Number of trials: ___________"/>
+			<EditText
+				android:id="@+id/ans3"
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent">
+			</EditText>
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:textSize="16sp"
+				android:text="I would like you to count backward from 100 by sevens.” (93, 86, 79, 72, 65, …) Stop after five answers.
+				Alternative: “Spell WORLD backwards.” (D-L-R-O-W) "/>
+			<EditText
+				android:id="@+id/ans4"
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent">
+			</EditText>
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:textSize="16sp"
+				android:text="Earlier I told you the names of three things. Can you tell me what those were?"/>
+			<EditText
+				android:id="@+id/ans5"
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent">
+			</EditText>
+
+			<Button
+				android:id="@+id/submitMmse"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Submit Results" />
+
+		</LinearLayout>
+	</ScrollView>
+
+</LinearLayout>
