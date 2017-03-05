@@ -333,7 +333,7 @@ public class MainActivity extends Activity implements OnClickListener {
         } else if (v.getId() == R.id.submitMmse){
 
             Date now = new Date();
-            Long longTime = new Long(now.getTime()/1000);
+            Long longTime = new Long(now.getTime());
             String time = Long.toString(longTime);
 
             EditText ans1 = (EditText) findViewById(R.id.ans1);
@@ -609,7 +609,7 @@ public class MainActivity extends Activity implements OnClickListener {
             if (alphaStale) {
                 updateAlpha();
             }
-            handler.postDelayed(tickUi, 1000/120);
+            handler.postDelayed(tickUi, 100);
         }
     };
 
@@ -620,15 +620,20 @@ public class MainActivity extends Activity implements OnClickListener {
 
     private void updateAlpha() {
         Date now = new Date();
-        Long longTime = new Long(now.getTime()/1000);
-        int time = longTime.intValue();
+        Long longTime = new Long(now.getTime());
         if (freq != null) {
-            csv = csv + "testuser," + gammaBuffer[0] + "," + gammaBuffer[1] + "," + gammaBuffer[2] + "," + gammaBuffer[3] + "," + Integer.toString(time) + ","+freq[0] + "\n";
+            csv = csv + "testuser," + gammaBuffer[0] + "," + gammaBuffer[1] + "," + gammaBuffer[2] + "," + gammaBuffer[3] + "," + Long.toString(longTime) + ","+freq[0] + "\n";
         } else {
-            csv = csv + "testuser," + gammaBuffer[0] + "," + gammaBuffer[1] + "," + gammaBuffer[2] + "," + gammaBuffer[3] + "," + Integer.toString(time) + ",unknown" + "\n";
+            csv = csv + "testuser," + gammaBuffer[0] + "," + gammaBuffer[1] + "," + gammaBuffer[2] + "," + gammaBuffer[3] + "," + Long.toString(longTime) + ",unknown" + "\n";
         }
 
-        if (csv.length() > 100000){
+        final String[] csvFinal = new String[1];
+        csvFinal[0] = csv;
+
+        int len = csv.split("\n").length;
+        System.out.println(len);
+        if (len > 100){
+            System.out.println("Submit");
             RequestQueue queue = Volley.newRequestQueue(this);
 
             String updateUrl ="http://138.197.137.193/update.php";
@@ -656,8 +661,8 @@ public class MainActivity extends Activity implements OnClickListener {
                 protected Map<String, String> getParams()
                 {
                     Map<String, String>  params = new HashMap<String, String>();
-                    params.put("csv", csv);
-                    //                   System.out.println(csv);
+                    params.put("csv", csvFinal[0]);
+                    System.out.println("getparams: " + csvFinal[0]);
                     return params;
                 }
             };
